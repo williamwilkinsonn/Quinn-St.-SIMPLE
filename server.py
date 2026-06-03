@@ -65,9 +65,10 @@ def get_places_api_key() -> str:
 
 def get_host_port() -> tuple[str, int]:
     load_env_file()
-    host = os.environ.get("QUINN_STREET_HOST", "127.0.0.1").strip() or "127.0.0.1"
+    # Use 0.0.0.0 to listen on all interfaces (required for Railway)
+    host = os.environ.get("QUINN_STREET_HOST", "0.0.0.0").strip() or "0.0.0.0"
     try:
-        port = int(os.environ.get("QUINN_STREET_PORT", "8035"))
+        port = int(os.environ.get("PORT", os.environ.get("QUINN_STREET_PORT", "8035")))
     except ValueError:
         port = 8035
     return host, port
