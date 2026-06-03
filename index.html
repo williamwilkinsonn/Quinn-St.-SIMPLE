@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quinn St. Lead Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <section class="hero-card">
+        <p class="eyebrow">Quinn St.</p>
+        <h1>Find new stores that may be a good fit for Quinn St.</h1>
+        <p class="hero-copy">
+          Search a city, suburb, or region to build a list of potential retail partners. The tool pulls store
+          information from Google Places, then helps you find website and contact details for outreach.
+        </p>
+        <div class="status-row">
+          <div class="status-pill" id="apiStatus">Checking API key…</div>
+          <div class="status-pill soft">Volume-first mode</div>
+          <div class="status-pill soft">CSV export ready</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">How It Works</p>
+            <h2>A simple two-step workflow</h2>
+          </div>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">1</span>
+            <h3>Choose a market</h3>
+            <p>Enter a city, neighborhood, or region where you want Quinn St. to appear.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">2</span>
+            <h3>Find stores and contact info</h3>
+            <p>Pull likely boutiques, baby shops, and gift-driven retailers, then scan their websites for email addresses and contact pages.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Retailer Profile</p>
+          <h2>What looks like a strong Quinn St. fit</h2>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <div class="profile-card">
+            <h3>Best store types</h3>
+            <p>Independent baby boutiques, children's boutiques, upscale gift shops, newborn-focused stores, and maternity boutiques.</p>
+          </div>
+          <div class="profile-card">
+            <h3>Brand signals</h3>
+            <p>Soft premium fabrics, bamboo or organic positioning, thoughtful gifting, neutral palettes, and elevated everyday essentials.</p>
+          </div>
+          <div class="profile-card">
+            <h3>Hero products</h3>
+            <p>Swaddles, knotted sleepers, two-piece sets, rompers, accessories, and bundle-driven gifting displays.</p>
+          </div>
+          <div class="profile-card">
+            <h3>Merchandising angle</h3>
+            <p>Heirloom-quality, stylish but practical, family-founded, and designed to make everyday parenting feel easier.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel control-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Market Search</p>
+            <h2>Search for potential stores</h2>
+          </div>
+          <button id="searchButton" class="primary-button">Find Stores</button>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            <span>Target market</span>
+            <input id="locationInput" type="text" placeholder="Denver, CO or Scottsdale, AZ" />
+          </label>
+          <label>
+            <span>Stores per search term</span>
+            <input id="maxResultsInput" type="number" min="1" max="20" value="10" />
+          </label>
+        </div>
+
+        <label class="stacked-field">
+          <span>Search terms</span>
+          <textarea
+            id="termsInput"
+            rows="4"
+            placeholder="One search term per line"
+          >baby boutique
+children's boutique
+baby clothing store
+children's clothing store
+newborn boutique
+gift boutique
+maternity boutique
+toy boutique</textarea>
+        </label>
+
+        <div class="helper-text">
+          Volume-first searches usually work best with broad-but-relevant terms. For Quinn St., lean toward premium boutique and gift-driven keywords instead of big-box language.
+        </div>
+      </section>
+
+      <section class="panel action-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Export</p>
+            <h2>Download the finished lead list</h2>
+          </div>
+          <div class="button-row">
+            <button id="exportButton" class="secondary-button">Export CSV</button>
+          </div>
+        </div>
+        <p class="helper-text" id="summaryText">No leads loaded yet.</p>
+        <p class="message" id="messageBox"></p>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="table-header">
+          <div>
+            <p class="section-label">Lead Table</p>
+          <h2>Potential Quinn St. partners</h2>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Business</th>
+                <th>Why it matched</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Maps</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody">
+              <tr class="empty-row">
+                <td colspan="6">
+                  <div class="empty-state">
+                    <strong>No leads yet</strong>
+                    <p>Start with a market like Denver, Austin, or Scottsdale, then click <span>Find Stores</span>.</p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
